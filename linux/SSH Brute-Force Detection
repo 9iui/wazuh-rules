@@ -1,0 +1,45 @@
+# SSH Brute-Force Detection
+
+**Rule ID:** 5710  
+**Category:** Authentication Failures  
+**Platform:** Linux  
+**MITRE ATT&CK:** T1110 – Brute Force  
+
+---
+
+## Purpose
+Detect repeated failed SSH login attempts originating from the same source IP within a short period of time.  
+This behavior is commonly associated with automated brute-force tools attempting to guess credentials.
+
+---
+
+## Use Case
+Linux servers exposed to the internet are frequently targeted by automated SSH brute-force bots attempting login with common usernames and passwords.
+
+This detection helps identify:
+- Password spraying
+- Credential brute forcing
+- Automated scanning tools targeting SSH
+
+---
+
+## Simulated Scenario
+An attacker uses a tool such as Hydra to attempt SSH logins using common usernames like:
+- root  
+- admin  
+- ubuntu  
+
+Within **45 seconds**, multiple failed login attempts are generated from the same IP address and recorded in authentication logs.
+
+---
+
+## Rule Logic
+
+```xml
+<rule id="5710" level="10">
+  <if_sid>5700</if_sid>
+  <frequency>6</frequency>
+  <timeframe>60</timeframe>
+  <same_source_ip />
+  <description>SSH brute-force attack detected.</description>
+</rule>
