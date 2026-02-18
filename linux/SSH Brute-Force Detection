@@ -46,3 +46,13 @@ Within **45 seconds**, multiple failed login attempts are generated from the sam
   </rule>
 
 </group>
+
+<group name="linux,ssh,tuning,">
+
+  <rule id="1005763" level="0">
+    <if_sid>5763</if_sid>
+    <field name="agent.name">nessus-Standard-PC-i440FX-PIIX-1996</field>
+    <description>Ignore SSH brute-force alerts from Nessus scanner.</description>
+  </rule>
+
+</group>
