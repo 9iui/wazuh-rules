@@ -45,3 +45,11 @@ Within **45 seconds**, multiple failed login attempts are generated from the sam
 
 </group>
 
+<group name="linux,ssh,authentication,">
+
+  <rule id="100600" level="12">
+    <if_sid>5763</if_sid>
+    <description>SSH brute-force attack detected (High severity - custom rule).</description>
+  </rule>
+
+</group>
