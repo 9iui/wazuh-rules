@@ -35,11 +35,14 @@ Within **45 seconds**, multiple failed login attempts are generated from the sam
 
 ## Rule Logic
 
-```xml
-<rule id="5710" level="10">
-  <if_sid>5700</if_sid>
-  <frequency>6</frequency>
-  <timeframe>60</timeframe>
-  <same_source_ip />
-  <description>SSH brute-force attack detected.</description>
-</rule>
+<group name="linux,ssh,authentication,">
+
+  <rule id="1005710" level="10">
+    <if_sid>5760</if_sid>
+    <frequency>6</frequency>
+    <timeframe>60</timeframe>
+    <same_source_ip />
+    <description>SSH brute-force attack detected (custom).</description>
+  </rule>
+
+</group>
