@@ -37,22 +37,10 @@ Within **45 seconds**, multiple failed login attempts are generated from the sam
 
 <group name="linux,ssh,authentication,">
 
-  <rule id="1005710" level="10">
+  <rule id="100601" level="10">
     <if_sid>5760</if_sid>
-    <frequency>6</frequency>
-    <timeframe>60</timeframe>
-    <same_source_ip />
-    <description>SSH brute-force attack detected (custom).</description>
-  </rule>
-
-</group>
-
-<group name="linux,ssh,authentication,">
-
-  <rule id="1005710" level="10" frequency="6" timeframe="60">
-    <if_matched_sid>5760</if_matched_sid>
-    <same_source_ip />
-    <description>SSH brute-force attack detected (custom).</description>
+    <match>root</match>
+    <description>SSH failed login attempt for root account.</description>
   </rule>
 
 </group>
